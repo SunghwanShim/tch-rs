@@ -10,7 +10,7 @@ use anyhow::{Context, Result};
 use std::path::{Path, PathBuf};
 use std::{env, fs, io};
 
-const TORCH_VERSION: &str = "2.1.0";
+const TORCH_VERSION: &str = "2.2.0.dev20231107";
 const PYTHON_PRINT_PYTORCH_DETAILS: &str = r"
 import torch
 from torch.utils import cpp_extension
@@ -165,7 +165,7 @@ fn version_check(version: &str) -> Result<()> {
     };
     if version != TORCH_VERSION {
         anyhow::bail!("this tch version expects PyTorch {TORCH_VERSION}, got {version}, this check can be bypassed by setting the LIBTORCH_BYPASS_VERSION_CHECK environment variable")
-    }
+}
     Ok(())
 }
 
